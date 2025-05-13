@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main/main_page.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" />
+
+</head>
+<!-- 전체 페이지 컨테이너 -->
+<div class="page-container">
+
+  <!-- 카테고리 탭 -->
+  <div class="category-section">
+    <button class="tab selected">인기신상랭킹</button>
+    <button class="tab">입점특가</button>
+    <button class="tab">간편한끼</button>
+    <button class="tab">요즘간식</button>
+    <button class="tab">주방·리빙</button>
+    <button class="tab">뷰티</button>
+    <button class="tab">패션·잡화</button>
+  </div>
+  <!-- 필터 + 정렬 + 상품 리스트 -->
+  <div class="filter-product-wrapper">
+    <!-- 필터 영역 -->
+    <aside class="filter-box">
+      <div class="filter-title">
+        <span class="filter-text">필터</span>
+        <button class="reset-box">
+          <img src="{% static 'assets/icons/reset.svg' %}" alt="초기화" class="reset-icon" />
+          <span class="reset-text">초기화</span>
+        </button>
+      </div>
+      <div class="filter-category">
+        <div class="filter-category-title"><span class="category-text">카테고리</span>
+          <button class="category-box">
+            <img src="{% static 'assets/icons/up.svg' %}" alt="카테고리 열기" class="category-icon" />
+          </button>
+        </div>
+        <label><input type="checkbox" class="category-checkbox" data-category="스킨케어·메이크업" data-count="68" /> 스킨케어·메이크업 <span class="count">68</span></label>
+        <label><input type="checkbox" class="category-checkbox" data-category="럭셔리뷰티" data-count="24" /> 럭셔리뷰티 <span class="count">24</span></label>
+        <label><input type="checkbox" class="category-checkbox" data-category="간식·과자·떡" data-count="28" /> 간식·과자·떡 <span class="count">28</span></label>
+      </div>
+    </aside>
+
+    <!-- 상품 리스트 영역 -->
+    <section class="product-section">
+      <!-- 정렬 옵션 -->
+      <div class="sort-bar">
+        <h3 class="num">총 508건</h3>
+        <div class="sort-options">
+          <a href="#">
+            <h3 class="order selected">추천순</h3>
+          </a>
+          <span class="divider"></span>
+          <a href="#">
+            <h3 class="order">신상품순</h3>
+          </a>
+          <span class="divider"></span>
+          <a href="#">
+            <h3 class="order">판매량순</h3>
+          </a>
+          <span class="divider"></span>
+          <a href="#">
+            <h3 class="order">혜택순</h3>
+          </a>
+          <span class="divider"></span>
+          <a href="#">
+            <h3 class="order">낮은 가격순</h3>
+          </a>
+          <span class="divider"></span>
+          <a href="#">
+            <h3 class="order">높은 가격순</h3>
+          </a>
+        </div>
+      </div>
+
+      <!-- 카테고리 선택 시, 표시하는 부분 -->
+      <div class="selected-category-info hidden">
+        <span class="selected-category-name"></span>
+      </div>
+
+      <!-- 상품 카드 리스트 -->
+      <div class="product-list">
+        {% for product in products %}
+        <div class="product-card">
+          <div class="product-image">
+            <img src="{% static 'assets/products/choonsik_purple.png' %}" alt="{{ product.name }}"
+              style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <button class="cart-button">
+            <img src="{% static 'assets/icons/cart.svg' %}" alt="장바구니" class="cart-icon" />
+            <span class="cart-text">담기</span>
+          </button>
+          <div class="product-info">
+            <p class="delivery-type">샛별배송</p>
+            <p class="product-name">{{ product }}</p>
+            <p class="product-desc">{{ product.description }}</p>
+            <p class="product-price">
+              {% if product.origin_price %}
+              <span class="original-price">{{ product.origin_price }}원</span>
+              {% endif %}
+              {% if product.discount_rate or product.discount_price %}
+              <span class="discount-wrapper">
+                {% if product.discount_rate %}
+                <span class="discount-rate">{{ product.discount_rate }}%</span>
+                {% endif %}
+                {% if product.discount_price %}
+                <span class="discount-price">{{ product.discount_price }}원</span>
+                {% endif %}
+              </span>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="{% static 'js/main/main_page.js' %}"></script>
+{% endblock %}
