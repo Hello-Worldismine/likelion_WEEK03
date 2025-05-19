@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'main',
     'accounts',
+
+    'django.contrib.humanize', # 가격에 , 표시하기 위함
 ]
 
 MIDDLEWARE = [

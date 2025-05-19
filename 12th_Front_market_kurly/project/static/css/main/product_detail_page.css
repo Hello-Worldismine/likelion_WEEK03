@@ -1,1 +1,241 @@
 /* product detail page - CSS */
+/* 상품 카드 기본 여백 및 폰트 설정 */
+.product-intro {
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    width: 1050px;
+    margin: 0 auto;
+    align-items: flex-start;
+    gap: 50px;
+    align-self: stretch;
+    margin-bottom : 100px;
+}
+
+.product-img {
+    width: 430px;
+    height: 550px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+/* 샛별배송 텍스트 */
+.delivery-type {
+    color: var(--font-font2, #999);
+
+    /* H3 */
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 133.333% */
+}
+
+/* 상품이름 */
+.product-name {
+    color: var(--font-font-1, #333);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    /* 133.333% */
+    letter-spacing: -1px;
+}
+
+.product-price {
+    display: flex;
+    padding: 20px 0px;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* 할인율 텍스트 */
+.discount-rate {
+    color: var(--point-red, #FA622F);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 114.286% */
+    letter-spacing: -1px;
+}
+
+/* 할인 가격 */
+.discount-price {
+    color: var(--font-font-1, #333);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 114.286% */
+    letter-spacing: -1px;
+}
+
+.notice-box {
+    display: flex;
+    padding: 20px 0px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #E2E2E2;
+}
+
+/* 안내사항, 상품선택 텍스트 */
+.notice,
+.select {
+    width: 128px;
+    color: var(--font-font2, #999);
+
+    /* B2-bold */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -1px;
+}
+
+/* 안내사항 내용 */
+.notice-content {
+    color: var(--font-font-1, #333);
+
+    /* B2 */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -1px;
+}
+
+
+/* 상품 옵션 박스 */
+.select-box {
+    display: flex;
+    padding: 20px 0px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #E2E2E2;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.product-option {
+    display: flex;
+    padding: 10px 10px 15px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 0 0;
+    border: 1px solid var(--stroke-stroke-2, #E2E2E2);
+}
+
+/* 상품 이름 */
+.product-option p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 수량 조절 버튼 */
+.counter {
+    display: flex;
+    padding: 4px;
+    align-items: flex-start;
+    border-radius: 4px;
+    border: 1px solid var(--stroke-stroke-2, #E2E2E2);
+}
+
+.counter button {
+    width: 20px;
+    color: var(--font-font-1, #333);
+    text-align: center;
+
+    /* B2-bold */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -1px;
+}
+
+.counter span {
+    width: 32px;
+    color: var(--font-font-1, #333);
+    text-align: center;
+
+    /* B2-bold */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -1px;
+}
+
+/* 총 상품 금액 */
+.total-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.total {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.total-label {
+    color: #000;
+
+    /* B2 */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -1px;
+}
+
+#total-price {
+    color: var(--font-font-1, #333);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 114.286% */
+    letter-spacing: -1px;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    display: flex;
+    padding: 16px 0px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 4px;
+    background: var(--point-main, #5E0080);
+    width: 570px;
+    height: 56px;
+    color: #FFF;
+    text-align: center;
+
+    /* Btn */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 150% */
+}

@@ -94,7 +94,7 @@
           </button>
           <div class="product-info">
             <p class="delivery-type">샛별배송</p>
-            <p class="product-name">{{ product }}</p>
+            <p class="product-name"><a href="{% url 'main:product_detail' product.id %}">{{ product }}</a></p>
             <p class="product-desc">{{ product.description }}</p>
             <p class="product-price">
               {% if product.origin_price %}
