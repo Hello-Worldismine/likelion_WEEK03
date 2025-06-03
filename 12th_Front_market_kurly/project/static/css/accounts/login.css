@@ -29,7 +29,7 @@
     letter-spacing: -1px;
 }
 
-input {
+.input-section {
     width: 340px;
     display: flex;
     height: 46px;
