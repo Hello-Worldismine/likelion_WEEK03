@@ -239,3 +239,11 @@
     line-height: 24px;
     /* 150% */
 }
+
+.upload-btn {
+    border-radius: 4px;
+    background: var(--point-main, #5E0080);
+    width: 70px;
+    height: 40px;
+    color: #FFF;
+}

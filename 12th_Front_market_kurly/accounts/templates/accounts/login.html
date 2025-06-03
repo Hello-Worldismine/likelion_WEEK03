@@ -1,6 +1,66 @@
 <!-- 임시 로그인 페이지 -->
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/login.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" />
+</head>
+<form method="POST" action="{% url 'accounts:login' %}">
+  {% csrf_token %}
 <div class="container">
-  <h2>로그인</h2>
+  <div class="login-container">
+    <h2 class="login-text">로그인</h2>
+
+    <input type="text" id="userid" name="username" placeholder="아이디를 입력해주세요">
+    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+
+    <div class="find">
+      <a href="#">아이디 찾기</a>
+      <span class="divider">|</span>
+      <a href="#">비밀번호 찾기</a>
+    </div>
+  </div>
+
+  <button class="login-btn" id="login-btn" disabled>로그인</button>
+  <a href="{% url 'accounts:signup' %}" class="signup-btn">회원가입</a>
+
+</form>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const userId = document.getElementById("userid");
+    const password = document.getElementById("password");
+    const loginBtn = document.getElementById("login-btn");
+
+    function checkLoginValid() {
+      const isIdFilled = userId.value.trim() !== "";
+      const isPwFilled = password.value.trim() !== "";
+
+      if (isIdFilled && isPwFilled) {
+        loginBtn.disabled = false;
+        loginBtn.style.backgroundColor = "#5E0080";
+        loginBtn.style.color = "#fff";
+        loginBtn.style.cursor = "pointer";
+      } else {
+        loginBtn.disabled = true;
+        loginBtn.style.backgroundColor = "#E2E2E2";
+        loginBtn.style.color = "#000";
+        loginBtn.style.cursor = "not-allowed";
+      }
+    }
+
+    userId.addEventListener("input", checkLoginValid);
+    password.addEventListener("input", checkLoginValid);
+  });
+
+  // 버튼 클릭 시 회원가입 페이지로 이동
+  document.getElementById("signup-btn").addEventListener("click", function () {
+    window.location.href = "{% url 'accounts:signup' %}";
+  });
+</script>
+
 {% endblock %}
